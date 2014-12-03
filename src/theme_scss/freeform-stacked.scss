@@ -1,74 +1,87 @@
 .freeform-stacked {
 	margin-left: 50px;
 
-
-	fieldset.element  {
+	.element  {
 		display: table-cell;
 		vertical-align: middle;
-		margin-bottom: 10px;
+		margin-bottom: 1em;
 		white-space: nowrap;
+
+		.input-region {
+			display: block;
+		}
+
+		input[type=text],
+		textarea {
+			display: block;
+			font-size: 18px;
+			border-radius: 3px;
+			border: 1px solid rgba(0,0,0,0.1);
+			margin: 0;
+			padding: 5px 8px;
+			padding-bottom: 6px;
+			width: 100%;
+			box-sizing: border-box;
+			
+			&:hover,
+			&:focus {
+				border: 1px solid rgba(0,0,0,0.3);
+			}
+		}
+
+		label {
+			font-size: 18px;
+			display: block;
+			user-select: none;
+		}
+		label.label {
+			margin-bottom: 5px;
+		}
+
+		.error-region {
+			display: block;
+			min-height: 20px;
+			padding-top: 5px;
+			position: relative;
+		}
+
+		label.error {
+			font-size: 14px;
+			font-style: italic;
+			font-family: Georgia, Serif;
+			position: absolute;
+			color: rgba(153,0,0,1);
+		}
 	}
 
-	.element .input-region {
-		display: block;
-	}
-	.element .error-region {
-		display: block;
-		min-height: 20px;
-		padding-top: 5px;
-		position: relative;
+	.element.element-error {
+		input[type=text],
+		textarea {
+			border: 1px solid rgba(153,0,0,0.5);
+		}
 	}
 
-	.element textarea,
-	.element input[type=text] {
-		font-size: 18px;
-		border-radius: 3px;
-		border: 1px solid rgba(0,0,0,0.1);
-		padding: 5px 8px;
-		padding-bottom: 6px;
-		width: 100%;
-		box-sizing: border-box;
-	}
-	.element input[type=text]:hover {
-		border: 1px solid rgba(0,0,0,0.3);
-	}
-	.element input[type=text]:hover,
-	.element input[type=text]:focus {
-		border: 1px solid rgba(0,0,0,0.3);
-	}
-	.element.element-error textarea,
-	.element.element-error input[type=text] {
-		border: 1px solid rgba(153,0,0,0.5);
-	}
-	.element label {
-		font-size: 18px;
-		user-select: none;
-	}
-	.element label.label {
-		display: block;
-		margin-bottom: 5px;
-	}
-	.element label.error {
-		font-size: 14px;
-		font-style: italic;
-		font-family: Georgia, Serif;
-		position: absolute;
-		color: rgba(153,0,0,1);
+	.element.type-text,
+	.element.type-textarea {
+		.input-region {
+			width: 280px;
+		}
 	}
 
-	.element.type-textarea .input-region,
-	.element.type-text .input-region {
-		width: 280px;
-	}
-
-	.element.type-checkbox .input-region,
-	.element.type-checkbox label.label {
-		display: inline-block;
-	}
-
-	.element.type-checkbox input {
-		position: relative;
-		top: -2px;
+	.element.type-checkbox {
+		.input-region {
+			display: inline-block;
+		}
+		input {
+			display: inline-block;
+			position: relative;
+			top: -2px;
+		}
+		label.label {
+			display: inline-block;
+			margin: 0;
+		}
+		
 	}
 
 }
