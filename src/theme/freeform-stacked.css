@@ -1,72 +1,54 @@
 .freeform-stacked {
-	margin-left: 50px;
-}
+  margin-left: 50px; }
+  .freeform-stacked fieldset.element {
+    display: table-cell;
+    vertical-align: middle;
+    margin-bottom: 10px;
+    white-space: nowrap; }
+  .freeform-stacked .element .input-region {
+    display: block; }
+  .freeform-stacked .element .error-region {
+    display: block;
+    min-height: 20px;
+    padding-top: 5px;
+    position: relative; }
+  .freeform-stacked .element textarea,
+  .freeform-stacked .element input[type=text] {
+    font-size: 18px;
+    border-radius: 3px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 5px 8px;
+    padding-bottom: 6px;
+    width: 100%;
+    box-sizing: border-box; }
+  .freeform-stacked .element input[type=text]:hover {
+    border: 1px solid rgba(0, 0, 0, 0.3); }
+  .freeform-stacked .element input[type=text]:hover,
+  .freeform-stacked .element input[type=text]:focus {
+    border: 1px solid rgba(0, 0, 0, 0.3); }
+  .freeform-stacked .element.element-error textarea,
+  .freeform-stacked .element.element-error input[type=text] {
+    border: 1px solid rgba(153, 0, 0, 0.5); }
+  .freeform-stacked .element label {
+    font-size: 18px;
+    user-select: none; }
+  .freeform-stacked .element label.label {
+    display: block;
+    margin-bottom: 5px; }
+  .freeform-stacked .element label.error {
+    font-size: 14px;
+    font-style: italic;
+    font-family: Georgia, Serif;
+    position: absolute;
+    color: #990000; }
+  .freeform-stacked .element.type-textarea .input-region,
+  .freeform-stacked .element.type-text .input-region {
+    width: 280px; }
+  .freeform-stacked .element.type-checkbox .input-region,
+  .freeform-stacked .element.type-checkbox label.label {
+    display: inline-block; }
+  .freeform-stacked .element.type-checkbox input {
+    position: relative;
+    top: -2px; }
 
-.freeform-stacked fieldset.element  {
-	display: table-cell;
-	vertical-align: middle;
-	margin-bottom: 10px;
-	white-space: nowrap;
-}
-
-.freeform-stacked .element .input-region {
-	display: block;
-}
-.freeform-stacked .element .error-region {
-	display: block;
-	min-height: 20px;
-	padding-top: 5px;
-	position: relative;
-}
-
-.freeform-stacked .element textarea,
-.freeform-stacked .element input[type=text] {
-	font-size: 18px;
-	border-radius: 3px;
-	border: 1px solid rgba(0,0,0,0.1);
-	padding: 5px 8px;
-	padding-bottom: 6px;
-	width: 100%;
-	box-sizing: border-box;
-}
-.freeform-stacked .element input[type=text]:hover {
-	border: 1px solid rgba(0,0,0,0.3);
-}
-.freeform-stacked .element input[type=text]:hover,
-.freeform-stacked .element input[type=text]:focus {
-	border: 1px solid rgba(0,0,0,0.3);
-}
-.freeform-stacked .element.element-error textarea,
-.freeform-stacked .element.element-error input[type=text] {
-	border: 1px solid rgba(153,0,0,0.5);
-}
-.freeform-stacked .element label {
-	font-size: 18px;
-	user-select: none;
-}
-.freeform-stacked .element label.label {
-	display: block;
-	margin-bottom: 5px;
-}
-.freeform-stacked .element label.error {
-	font-size: 14px;
-	font-style: italic;
-	font-family: Georgia, Serif;
-	position: absolute;
-	color: rgba(153,0,0,1);
-}
-
-.freeform-stacked .element.type-textarea .input-region,
-.freeform-stacked .element.type-text .input-region {
-	width: 280px;
-}
-
-.freeform-stacked .element.type-checkbox .input-region,
-.freeform-stacked .element.type-checkbox label.label {
-	display: inline-block;
-}
-
-.freeform-stacked .element.type-checkbox input {
-	position: relative;
-	top: -2px;
-}
+/*# sourceMappingURL=freeform-stacked.css.map */

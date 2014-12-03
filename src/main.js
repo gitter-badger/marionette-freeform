@@ -19,7 +19,7 @@ define(function(require) {
 	var examples = {
 		'basic': {
 			label: 'Basic form',
-			description: 'A basic form with three elements. Each element provides its own validator. The first error returned by the validator is shown. Try entering "Bob" or "David" as your first name to see an example.',
+			description: 'A basic form with a few elements. Each element provides its own validator. The first error returned by the validator is shown. Try entering "Bob" or "David" as your first name to see an example.',
 			view: BasicExample,
 			code: BasicCode,
 			template: BasicTemplate

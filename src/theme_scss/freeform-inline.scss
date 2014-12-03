@@ -1,0 +1,73 @@
+.freeform-inline {
+	fieldset.element  {
+		display: table-cell;
+		vertical-align: middle;
+		margin-bottom: 1em;
+		white-space: nowrap;
+	}
+
+	.element .input-region {
+		display: inline-block;
+	}
+
+	.element textarea,
+	.element input[type=text] {
+		font-size: 18px;
+		border-radius: 3px;
+		border: 1px solid rgba(0,0,0,0.1);
+		padding: 5px 8px;
+		padding-bottom: 6px;
+		width: 100%;
+		box-sizing: border-box;
+	}
+	.element textarea:hover,
+	.element textarea:active,
+	.element input[type=text]:hover,
+	.element input[type=text]:focus {
+		border: 1px solid rgba(0,0,0,0.3);
+	}
+	.element.element-error textarea,
+	.element.element-error input[type=text] {
+		border: 1px solid rgba(153,0,0,0.5);
+	}
+	.element label {
+		font-size: 18px;
+		display: inline-block;
+		user-select: none;
+	}
+	.element label.label {
+	
+	}
+	.element label.error {
+		font-style: italic;
+		font-family: Georgia, Serif;
+		color: rgba(153,0,0,1);
+		padding-left: 10px;
+	}
+
+	.element.type-textarea label.label,
+	.element.type-text label.label {
+		width: 140px;
+		text-align: right;
+		padding-right: 5px;
+	}
+	.element.type-text label.error {
+	}
+	.element.type-textarea .input-region,
+	.element.type-text .input-region {
+		width: 280px;
+	}
+
+	fieldset.element.type-textarea label {
+		vertical-align: top;
+		margin-top: 4px;
+	}
+
+	.element.type-checkbox .input-region {
+		margin-left: 146px;
+	}
+	.element.type-checkbox input {
+		position: relative;
+		top: -2px;
+	}
+}
