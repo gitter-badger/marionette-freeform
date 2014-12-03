@@ -34,7 +34,7 @@ define(function(require) {
 		},
 		'related_model': {
 			label: 'Form with a related model',
-			description: 'In this example, all validation is defined in a separate <code>User</code> model, which is used as the <code>related_model</code> for the form. Each element uses a <code>related_key</code> to associate it with a specific attribute of the user, with errors surfacing next to the appropriate form element. Try entering a long first name, or try entering a username that breaks one of the rules shown in the example code below.',
+			description: 'Here, all validation is defined in a separate <code>User</code> model, which is used as the <code>related_model</code> for the form. Each element uses a <code>related_key</code> to associate it with a specific attribute of the user. The element gets its initial value from that user attribute and displays any errors associated with that attribute. Try entering a long first name, or try entering a username that breaks one of the rules shown in the example code below.',
 			view: RelatedExample,
 			code: RelatedCode,
 			template: ExampleTemplate
@@ -137,7 +137,7 @@ define(function(require) {
 			});
 		},
 		focusFirstInput: function() {
-			this.$('input, select, textarea').first().focus();
+			this.$('input, select, textarea').first().focus().select();
 		}
 	});
 
