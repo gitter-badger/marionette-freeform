@@ -19,6 +19,11 @@ define(function(require) {
 		el: '.example-region'
 	});
 
+	var view_model = new Backbone.Model({
+		example: 'basic',
+		theme: 'inline'
+	});
+
 	var examples = {
 		'basic': {
 			label: 'Basic form',
@@ -35,6 +40,8 @@ define(function(require) {
 			template: ExampleTemplate
 		},
 	};
+
+	// TODO create a view controller for all this outer stuff
 
 	var showExample = function(example_name) {
 		var example = examples[example_name];
@@ -57,26 +64,56 @@ define(function(require) {
 		example_chooser.append(option);
 	});
 	example_chooser.on('change', function() {
-		showExample(this.value);
+		view_model.set('example', this.value);
+	});
+	view_model.on('change:example', function(model, example) {
+		showExample(example);
 	});
 
 
+	var theme_chooser = $('.chooser select.themes');
+	theme_chooser.on('change', function() {
+		view_model.set('theme', this.value);
+	});
+
 	var ExampleViewer = Marionette.LayoutView.extend({
 		template: 'script.example',
+		ui: {
+			form: 'form',
+			title: '.title',
+			description: 'article',
+			code: 'pre.code code',
+			template: 'pre.template code'
+		},
+		viewModelEvents: {
+			'change:theme': 'setTheme'
+		},
+		initialize: function() {
+			_.bindAll(this, 'focusFirstInput');
+			this.bindEntityEvents(view_model, this.viewModelEvents)
+		},
 		onRender: function() {
+			this.setTheme();
 			this.showDescription();
 			this.showFormView();
 			this.showExampleCode();
 			this.showExampleTemplate();
 			this.highlightCode();
 		},
+		onShow: function() {
+			_.defer(this.focusFirstInput);
+		},
+		setTheme: function() {
+			var theme = view_model.get('theme');
+			this.ui.form.setPrefixedClassname('freeform', theme);
+		},
 		showDescription: function() {
-			this.$('.title').text(this.options.example.label);
-			this.$('article').html(this.options.example.description);
+			this.ui.title.text(this.options.example.label);
+			this.ui.description.html(this.options.example.description);
 		},
 		showFormView: function() {
 			var view = this.options.example.view;
-			view.setElement(this.$('form'));
+			view.setElement(this.ui.form);
 			view.render();
 		},
 		showExampleCode: function() {
@@ -84,22 +121,27 @@ define(function(require) {
 			code = code.replace(jshint, '');
 			code = code.replace(begin, '');
 			code = code.replace(end, '');
-			code += '\n\n\tmy_region.show(form_view);\n\n';
+			code += '\n\n'
+			code += '\t// show the form in some region\n';
+			code += '\tmy_region.show(form_view);\n\n';
 
-			this.$('pre.code code').text(code);
+			this.ui.code.text(code);
 		},
 		showExampleTemplate: function() {
 			var template = this.options.example.template;
-			this.$('pre.template code').text(template);
+			this.ui.template.text(template);
 		},
 		highlightCode: function() {
 			this.$('pre code').each(function(i, block) {
 				hljs.highlightBlock(block);
 			});
+		},
+		focusFirstInput: function() {
+			this.$('input, select, textarea').first().focus();
 		}
 	});
 
-	showExample('basic');
+	showExample(view_model.get('example'));
 
 
 });

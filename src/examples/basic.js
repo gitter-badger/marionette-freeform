@@ -17,6 +17,7 @@ define(function(require) {
 			el: '.firstname',
 			type: 'text',
 			label: 'First Name',
+			value: '',
 			validator: function(value) {
 				if (value.toLowerCase() === 'bob') {
 					return 'Your first name can’t be Bob.';
@@ -30,6 +31,7 @@ define(function(require) {
 			el: '.username',
 			type: 'text',
 			label: 'Username',
+			value: '',
 			validator: function(value) {
 				if (! value) return 'A username is required.';
 				if (value.length < 3) return 'Your username must be 3 characters or longer.';

@@ -1,0 +1,65 @@
+.freeform-mixed {
+	margin-left: 50px;
+}
+
+.freeform-mixed fieldset.element  {
+	display: table-cell;
+	vertical-align: middle;
+	margin-bottom: 1em;
+	white-space: nowrap;
+}
+
+.freeform-mixed .element .input-region {
+	display: inline-block;
+}
+
+.freeform-mixed .element input[type=text] {
+	font-size: 18px;
+	border-radius: 3px;
+	border: 1px solid rgba(0,0,0,0.1);
+	padding: 5px 8px;
+	padding-bottom: 6px;
+	width: 100%;
+	box-sizing: border-box;
+}
+.freeform-mixed .element input[type=text]:hover {
+	border: 1px solid rgba(0,0,0,0.3);
+}
+.freeform-mixed .element input[type=text]:hover,
+.freeform-mixed .element input[type=text]:focus {
+	border: 1px solid rgba(0,0,0,0.3);
+}
+.freeform-mixed .element.element-error input[type=text] {
+	border: 1px solid rgba(153,0,0,0.5);
+}
+.freeform-mixed .element label {
+	font-size: 18px;
+	user-select: none;
+}
+.freeform-mixed .element label.label {
+	display: block;
+	margin-bottom: 5px;
+}
+.freeform-mixed .element label.error {
+	display: inline-block;
+	margin-left: 5px;
+	font-style: italic;
+	font-family: Georgia, Serif;
+}
+
+.freeform-mixed .element.type-text label.error {
+	color: rgba(153,0,0,1);
+}
+.freeform-mixed .element.type-text .input-region {
+	width: 280px;
+}
+
+.freeform-mixed .element.type-checkbox .input-region,
+.freeform-mixed .element.type-checkbox label.label {
+	display: inline-block;
+}
+
+.freeform-mixed .element.type-checkbox input {
+	position: relative;
+	top: -2px;
+}

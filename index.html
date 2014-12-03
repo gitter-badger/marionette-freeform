@@ -8,6 +8,8 @@
 	
 	<link href="css/main.css" rel="stylesheet" type="text/css">
 	<link href="src/theme/freeform-inline.css" rel="stylesheet" type="text/css">
+	<link href="src/theme/freeform-stacked.css" rel="stylesheet" type="text/css">
+	<link href="src/theme/freeform-mixed.css" rel="stylesheet" type="text/css">
 	
 </head>
 <body>
@@ -18,15 +20,18 @@
 
 <article>
 	<p><code>marionette-freeform</code> is a library of models and views you can use to build forms in Marionette, using model validation to display contextual error messages as users fill out your forms. Choose an example to see it in action.</p>
+	<p><em>This library is agnostic as to the appearance of your forms. A few themes are provided to give you an idea of what’s possible.</em></p>
 </article>
 
 <form class="chooser">
-	<select class="examples">
-		<option>Choose an example:</option>
-	</select>
-	<select class="themes" style="display:none">
-		<option>TODO Choose a theme:</option>
+	<label>Examples</label>
+	<select class="examples"></select>
+
+	<label>Theme</label>
+	<select class="themes">
 		<option value="inline">Inline</option>
+		<option value="stacked">Stacked</option>
+		<option value="mixed">Mixed</option>
 	</select>
 </form>
 
@@ -39,7 +44,7 @@
 
 	<h3>The Form</h3>
 
-	<form class="freeform-inline"></form>
+	<form></form>
 
 	<h3>The Template</h3>
 

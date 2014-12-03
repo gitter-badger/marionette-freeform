@@ -33,6 +33,11 @@ article code {
 	border: 1px solid rgba(0,0,0,0.1);
 }
 
+article em {
+	font-size: 14px;
+	color: #666;
+}
+
 .chooser select {
 	font-size: 24px;
 	margin-bottom: 20px;
@@ -50,3 +55,6 @@ pre code {
 	overflow: scroll;
 }
 
+.example-region {
+	border-top: 1px solid rgba(0,0,0,0.3);
+}
