@@ -36,6 +36,7 @@
 .freeform-stacked .element input[type=text]:focus {
 	border: 1px solid rgba(0,0,0,0.3);
 }
+.freeform-stacked .element.element-error textarea,
 .freeform-stacked .element.element-error input[type=text] {
 	border: 1px solid rgba(153,0,0,0.5);
 }

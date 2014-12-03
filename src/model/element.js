@@ -5,14 +5,17 @@ define(function(require) {
 
 	var default_options = {
 		text: {
+			value: '',
 			show_label: true,
 			show_label_before: true
 		},
 		textarea: {
+			value: '',
 			show_label: true,
 			show_label_before: true
 		},
 		checkbox: {
+			value: false,
 			show_label: true,
 			show_label_after: true
 		}
