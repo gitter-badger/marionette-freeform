@@ -14,14 +14,6 @@ define(function(require) {
 	// each element can provide its own validator function
 	var elements = [
 		{
-			el: '.username',
-			type: 'text',
-			label: 'Username',
-			validator: function(value) {
-				if (! value) return 'A username is required.';
-			}
-		},
-		{
 			el: '.firstname',
 			type: 'text',
 			label: 'First Name',
@@ -29,6 +21,14 @@ define(function(require) {
 				if (value.toLowerCase() === 'bob') {
 					return 'Your first name can’t be Bob.';
 				}
+			}
+		},
+		{
+			el: '.username',
+			type: 'text',
+			label: 'Username',
+			validator: function(value) {
+				if (! value) return 'A username is required.';
 			}
 		},
 		{

@@ -50,16 +50,16 @@ define(function(require) {
 	// (e.g. the user defined above)
 	var elements = [
 		{
-			el: '.username',
-			type: 'text',
-			related_key: 'user_name',
-			label: 'Username'
-		},
-		{
 			el: '.firstname',
 			type: 'text',
 			related_key: 'first_name',
 			label: 'First Name'
+		},
+		{
+			el: '.username',
+			type: 'text',
+			related_key: 'user_name',
+			label: 'Username'
 		},
 		{
 			el: '.admin',

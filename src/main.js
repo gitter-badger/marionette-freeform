@@ -29,7 +29,7 @@ define(function(require) {
 		},
 		'related_model': {
 			label: 'Form with a related model',
-			description: 'In this example, each element uses a <code>related_key</code> and the whole form uses a <code>related_model</code>. All validators are defined in the related model, with errors surfacing next to the appropriate form element. Try entering a long first name, or try entering a username that breaks one of the rules shown in the example code below.',
+			description: 'In this example, all validation is defined in a separate <code>User</code> model, which is used as the <code>related_model</code> for the form. Each element uses a <code>related_key</code> to associate it with a specific attribute of the user, with errors surfacing next to the appropriate form element. Try entering a long first name, or try entering a username that breaks one of the rules shown in the example code below.',
 			view: RelatedExample,
 			code: RelatedCode,
 			template: ExampleTemplate
