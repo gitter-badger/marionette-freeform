@@ -42,7 +42,7 @@
 }
 
 .freeform-inline .element.type-text label.label {
-	width: 200px;
+	width: 140px;
 	text-align: right;
 	padding-right: 5px;
 }
@@ -55,7 +55,7 @@
 }
 
 .freeform-inline .element.type-checkbox .input-region {
-	margin-left: 206px;
+	margin-left: 146px;
 }
 .freeform-inline .element.type-checkbox input {
 	position: relative;

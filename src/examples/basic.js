@@ -21,6 +21,9 @@ define(function(require) {
 				if (value.toLowerCase() === 'bob') {
 					return 'Your first name can’t be Bob.';
 				}
+				if (value.toLowerCase() === 'david') {
+					return 'Your first name can’t be David.';
+				}
 			}
 		},
 		{
@@ -29,6 +32,7 @@ define(function(require) {
 			label: 'Username',
 			validator: function(value) {
 				if (! value) return 'A username is required.';
+				if (value.length < 3) return 'Your username must be 3 characters or longer.';
 			}
 		},
 		{
