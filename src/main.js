@@ -16,15 +16,6 @@ define(function(require) {
 	var begin = new RegExp('[^•]+\/\\* begin example \\*\/', 'gim');
 	var end = new RegExp('\\s+\/\\* end example \\*\/[^•]+', 'gim');
 
-	var example_region = new Marionette.Region({
-		el: '.example-region'
-	});
-
-	var view_model = new Backbone.Model({
-		example: 'basic',
-		theme: 'inline'
-	});
-
 	var examples = {
 		'basic': {
 			label: 'Basic form',
@@ -42,39 +33,16 @@ define(function(require) {
 		},
 	};
 
-	// TODO create a view controller for all this outer stuff
-
-	var showExample = function(example_name) {
-		var example = examples[example_name];
-		if (example) {
-			var viewer = new ExampleViewer({
-				example: example
-			});
-			example_region.show(viewer);
-		} else {
-			example_region.empty();
-		}
-	};
-
-	var example_chooser = $('.chooser select.examples');
-
-	_.each(_.keys(examples), function(key) {
-		var option = $('<option />');
-		option.val(key);
-		option.text(examples[key].label);
-		example_chooser.append(option);
+	var chooser_region = new Marionette.Region({
+		el: '.chooser-region'
 	});
-	example_chooser.on('change', function() {
-		view_model.set('example', this.value);
-	});
-	view_model.on('change:example', function(model, example) {
-		showExample(example);
+	var example_region = new Marionette.Region({
+		el: '.example-region'
 	});
 
-
-	var theme_chooser = $('.chooser select.themes');
-	theme_chooser.on('change', function() {
-		view_model.set('theme', this.value);
+	var view_model = new Backbone.Model({
+		example: 'basic',
+		theme: 'inline'
 	});
 
 	var ExampleViewer = Marionette.LayoutView.extend({
@@ -142,7 +110,62 @@ define(function(require) {
 		}
 	});
 
-	showExample(view_model.get('example'));
+	var ChooserView = Marionette.LayoutView.extend({
+		tagName: 'form',
+		className: 'chooser',
 
+		template: 'script.chooser',
+		initialize: function() {
+			this.listenTo(view_model, 'change:example', this.showCurrentExample);
+		},
+
+		ui: {
+			examples: 'select.examples',
+			themes: 'select.themes'
+		},
+		onRender: function() {
+			this.addExampleOptions();
+			this.showCurrentExample();
+		},
+		addExampleOptions: function() {
+			_.each(_.keys(examples), function(key) {
+				var option = $('<option />');
+				option.val(key);
+				option.text(examples[key].label);
+				this.ui.examples.append(option);
+			}, this);
+			var example_name = view_model.get('example');
+			this.ui.examples.val(example_name);
+		},
+		showCurrentExample: function() {
+			var example_name = view_model.get('example');
+			var example = examples[example_name];
+			if (example) {
+				this.viewer = new ExampleViewer({
+					example: example
+				});
+				example_region.show(this.viewer);
+			} else {
+				example_region.empty();
+				delete this.viewer;
+			}
+		},
+
+		events: {
+			'change @ui.examples': 'onChooseExample',
+			'change @ui.themes': 'onChooseTheme'
+		},
+		onChooseExample: function() {
+			var example = this.ui.examples.val();
+			view_model.set('example', example);
+		},
+		onChooseTheme: function() {
+			var theme = this.ui.themes.val();
+			view_model.set('theme', theme);
+		}
+	});
+
+	var chooser_view = new ChooserView();
+	chooser_region.show(chooser_view);
 
 });
