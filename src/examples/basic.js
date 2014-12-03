@@ -3,7 +3,7 @@ define(function(require) {
 
 	var Form = require('model/form'),
 		FormView = require('view/form_view'),
-		Template = require('text!template/form.html'),
+		Template = require('text!template/basic.html'),
 		log = require('lib/log'); /* jshint ignore: line */
 	require('model/validation');
 
@@ -14,10 +14,10 @@ define(function(require) {
 	// each element can provide its own validator function
 	var elements = [
 		{
-			el: '.firstname',
+			el: '.name',
 			type: 'text',
 			label: 'First Name',
-			value: '',
+			value: 'A first name',
 			validator: function(value) {
 				if (value.toLowerCase() === 'bob') {
 					return 'Your first name can’t be Bob.';
@@ -28,19 +28,19 @@ define(function(require) {
 			}
 		},
 		{
-			el: '.username',
-			type: 'text',
-			label: 'Username',
-			value: '',
+			el: '.description',
+			type: 'textarea',
+			label: 'Description',
+			value: 'A sample description',
+			rows: 4,
 			validator: function(value) {
-				if (! value) return 'A username is required.';
-				if (value.length < 3) return 'Your username must be 3 characters or longer.';
+				if (! value) return 'A description is required.'
 			}
 		},
 		{
-			el: '.admin',
+			el: '.terms',
 			type: 'checkbox',
-			label: 'Administrator'
+			label: 'I accept the terms of service.'
 		},
 	];
 

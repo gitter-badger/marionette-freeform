@@ -12,33 +12,54 @@ define(function(require) {
 
 		elementView: ElementView,
 
+		formViewEvents: {
+			'render': 'onFormRender'
+		},
+
 		constructor: function(options) {
 			options = options || {};
 
 			// validate model
-			if (! (options.model instanceof Form)) {
-				if (options.model instanceof Backbone.Model) {
-					options.model = new Form(options.model.attributes);
-				} else {
-					throw new Error('FormView requires a Form model.');
-				}
-			}
+			options.model = this.setupFormModel(options.model);
 
+			// validate elementView
 			if (options.elementView) this.elementView = options.elementView;
-
-			// set up render listeners
-			this.listenTo(this, 'render', this.onFormRender);
+			this.validateElementView();
 
 			Marionette.LayoutView.call(this, options);
 
+			// bind view events
+			this.bindEntityEvents(this, this.formViewEvents);
+
 		},
+
+		setupFormModel: function(model) {
+			if (model instanceof Form) return model;
+
+			if (model instanceof Backbone.Model) {
+				model = new Form(model.attributes);
+			} else {
+				throw new Error('FormView requires a Form model.');
+			}
+
+			return model;
+		},
+
+		validateElementView: function() {
+			if (this.elementView === ElementView) return;
+			if (this.elementView.prototype instanceof ElementView) return;
+			throw new Error('FormView.elementView must be an ElementView.');
+		},
+
 		onFormRender: function() {
 			this.addElementViews();
 		},
+
 		addElementViews: function() {
 			var elements = this.model.get('elements');
 			elements.each(this.addElementView, this);
 		},
+
 		addElementView: function(element) {
 			var view = new this.elementView({
 				el: this.$(element.get('el')),

@@ -5,9 +5,10 @@ define(function(require) {
 	var
 	BasicExample			= require('examples/basic'),
 	BasicCode				= require('text!examples/basic.js'),
+	BasicTemplate			= require('text!template/basic.html'),
 	RelatedExample			= require('examples/related_model'),
 	RelatedCode				= require('text!examples/related_model.js'),
-	ExampleTemplate			= require('text!template/form.html'),
+	RelatedTemplate			= require('text!template/form.html'),
 	log						= require('lib/log'); /* jshint ignore: line */
 	require('lib/setPrefixedClassname');
 
@@ -30,14 +31,14 @@ define(function(require) {
 			description: 'A basic form with three elements. Each element provides its own validator. The first error returned by the validator is shown. Try entering "Bob" or "David" as your first name to see an example.',
 			view: BasicExample,
 			code: BasicCode,
-			template: ExampleTemplate
+			template: BasicTemplate
 		},
 		'related_model': {
 			label: 'Form with a related model',
 			description: 'Here, all validation is defined in a separate <code>User</code> model, which is used as the <code>related_model</code> for the form. Each element uses a <code>related_key</code> to associate it with a specific attribute of the user. The element gets its initial value from that user attribute and displays any errors associated with that attribute. Try entering a long first name, or try entering a username that breaks one of the rules shown in the example code below.',
 			view: RelatedExample,
 			code: RelatedCode,
-			template: ExampleTemplate
+			template: RelatedTemplate
 		},
 	};
 

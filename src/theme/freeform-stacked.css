@@ -19,6 +19,7 @@
 	position: relative;
 }
 
+.freeform-stacked .element textarea,
 .freeform-stacked .element input[type=text] {
 	font-size: 18px;
 	border-radius: 3px;
@@ -51,11 +52,10 @@
 	font-style: italic;
 	font-family: Georgia, Serif;
 	position: absolute;
-}
-
-.freeform-stacked .element.type-text label.error {
 	color: rgba(153,0,0,1);
 }
+
+.freeform-stacked .element.type-textarea .input-region,
 .freeform-stacked .element.type-text .input-region {
 	width: 280px;
 }

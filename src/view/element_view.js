@@ -4,6 +4,7 @@ define(function(require) {
 	var
 	Element				= require('model/element'),
 	InputTextView		= require('./input_text_view'),
+	InputTextareaView	= require('./input_textarea_view'),
 	InputCheckboxView	= require('./input_checkbox_view'),
 	ErrorView			= require('./error_view'),
 	Template			= require('text!template/element.html'),
@@ -15,7 +16,7 @@ define(function(require) {
 	var view_types = {
 		text: InputTextView,
 		password: InputTextView,
-		//textarea: TextareaView,
+		textarea: InputTextareaView,
 		checkbox: InputCheckboxView
 	};
 

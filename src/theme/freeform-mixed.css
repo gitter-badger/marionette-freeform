@@ -13,6 +13,7 @@
 	display: inline-block;
 }
 
+.freeform-mixed .element textarea,
 .freeform-mixed .element input[type=text] {
 	font-size: 18px;
 	border-radius: 3px;
@@ -45,13 +46,17 @@
 	margin-left: 5px;
 	font-style: italic;
 	font-family: Georgia, Serif;
-}
-
-.freeform-mixed .element.type-text label.error {
 	color: rgba(153,0,0,1);
 }
+
+.freeform-mixed .element.type-textarea .input-region,
 .freeform-mixed .element.type-text .input-region {
 	width: 280px;
+}
+
+.freeform-mixed fieldset.element.type-textarea label.error {
+	vertical-align: top;
+	margin-top: 4px;
 }
 
 .freeform-mixed .element.type-checkbox .input-region,
