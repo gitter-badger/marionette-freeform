@@ -2,16 +2,14 @@
 	margin-left: 50px;
 
 	.element  {
-		display: table-cell;
-		vertical-align: middle;
-		margin-bottom: 1em;
-		white-space: nowrap;
+		margin-bottom: 20px;
 
 		.input-region {
 			display: block;
 		}
 
 		input[type=text],
+		select,
 		textarea {
 			display: block;
 			font-size: 18px;
@@ -40,29 +38,30 @@
 
 		.error-region {
 			display: block;
-			min-height: 20px;
+			min-height: 25px;
+			margin-bottom: -20px;
 			padding-top: 5px;
-			position: relative;
 		}
 
 		label.error {
 			font-size: 14px;
 			font-style: italic;
 			font-family: Georgia, Serif;
-			position: absolute;
 			color: rgba(153,0,0,1);
 		}
 	}
 
 	.element.element-error {
 		input[type=text],
+		select,
 		textarea {
 			border: 1px solid rgba(153,0,0,0.5);
 		}
 	}
 
 	.element.type-text,
-	.element.type-textarea {
+	.element.type-textarea,
+	.element.type-select {
 		.input-region {
 			width: 280px;
 		}

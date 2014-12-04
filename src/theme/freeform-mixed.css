@@ -8,15 +8,19 @@
     .freeform-mixed .element .input-region {
       display: inline-block; }
     .freeform-mixed .element input[type=text],
+    .freeform-mixed .element select,
     .freeform-mixed .element textarea {
       font-size: 18px;
       border-radius: 3px;
       border: 1px solid rgba(0, 0, 0, 0.1);
+      margin: 0;
       padding: 5px 8px;
       padding-bottom: 6px;
       width: 100%;
       box-sizing: border-box; }
       .freeform-mixed .element input[type=text]:hover, .freeform-mixed .element input[type=text]:focus,
+      .freeform-mixed .element select:hover,
+      .freeform-mixed .element select:focus,
       .freeform-mixed .element textarea:hover,
       .freeform-mixed .element textarea:focus {
         border: 1px solid rgba(0, 0, 0, 0.3); }
@@ -33,10 +37,12 @@
       color: #990000;
       padding-left: 10px; }
   .freeform-mixed .element.element-error input[type=text],
+  .freeform-mixed .element.element-error select,
   .freeform-mixed .element.element-error textarea {
     border: 1px solid rgba(153, 0, 0, 0.5); }
   .freeform-mixed .element.type-text .input-region,
-  .freeform-mixed .element.type-textarea .input-region {
+  .freeform-mixed .element.type-textarea .input-region,
+  .freeform-mixed .element.type-select .input-region {
     width: 280px; }
   .freeform-mixed .element.type-textarea label {
     vertical-align: top;

@@ -16,10 +16,14 @@ define(function(require) {
 			'render': 'onFormRender'
 		},
 
+		triggers: {
+			'submit': 'before:form:submit'
+		},
+
 		constructor: function(options) {
 			options = options || {};
 
-			// validate model
+			// set up form model
 			options.model = this.setupFormModel(options.model);
 
 			// validate elementView
@@ -66,6 +70,16 @@ define(function(require) {
 				model: element
 			});
 			view.render();
+		},
+
+		onBeforeFormSubmit: function() {
+			if (this.model.isValid()) {
+				this.triggerMethod('form:submit');
+				log('Form is valid. Implement your own onFormSubmit handler to do something with the form data.')
+			} else {
+				this.triggerMethod('form:submit:error', this.model.validationError);
+				log('Form is not valid.', this.model.validationError)
+			}
 		}
 
 	});

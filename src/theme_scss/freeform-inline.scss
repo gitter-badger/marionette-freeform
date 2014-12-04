@@ -1,21 +1,25 @@
 .freeform-inline {
 	.element  {
-		display: table-cell;
-		vertical-align: middle;
+		display: block;
 		margin-bottom: 1em;
 		white-space: nowrap;
 
-		.input-region {
+		> * {
 			display: inline-block;
+			vertical-align: middle;
 		}
 
 		input[type=text],
+		select,
 		textarea {
+			display: block;
+			margin: 0;
+			font-family: inherit;
 			font-size: 18px;
+			line-height: 1.8em;
 			border-radius: 3px;
 			border: 1px solid rgba(0,0,0,0.1);
-			padding: 5px 8px;
-			padding-bottom: 6px;
+			padding: 4px 8px;
 			width: 100%;
 			box-sizing: border-box;
 			
@@ -24,10 +28,15 @@
 				border: 1px solid rgba(0,0,0,0.3);
 			}
 		}
+		
+		input[type=text],
+		select {
+			height: 1.8em;
+		}
 
 		label {
-			font-size: 18px;
 			display: inline-block;
+			font-size: 18px;
 			user-select: none;
 		}
 		label.error {
@@ -40,13 +49,15 @@
 
 	.element.element-error {
 		input[type=text],
+		select,
 		textarea {
 			border: 1px solid rgba(153,0,0,0.5);
 		}
 	}
 
 	.element.type-text,
-	.element.type-textarea {
+	.element.type-textarea,
+	.element.type-select {
 		.input-region {
 			width: 280px;
 		}
@@ -58,9 +69,11 @@
 	}
 
 	.element.type-textarea {
-		label {
+		> * {
 			vertical-align: top;
-			margin-top: 4px;
+		}
+		label {
+			margin-top: 5px;
 		}
 	}
 

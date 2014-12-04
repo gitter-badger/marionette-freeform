@@ -6,6 +6,7 @@ define(function(require) {
 	InputTextView		= require('./input_text_view'),
 	InputTextareaView	= require('./input_textarea_view'),
 	InputCheckboxView	= require('./input_checkbox_view'),
+	InputSelectView		= require('./input_select_view'),
 	ErrorView			= require('./error_view'),
 	Template			= require('text!template/element.html'),
 	log					= require('lib/log'); /* jshint ignore: line */
@@ -17,7 +18,8 @@ define(function(require) {
 		text: InputTextView,
 		password: InputTextView,
 		textarea: InputTextareaView,
-		checkbox: InputCheckboxView
+		checkbox: InputCheckboxView,
+		select: InputSelectView
 	};
 
 
@@ -46,7 +48,6 @@ define(function(require) {
 
 			// validate model
 			if (! (model instanceof Element)) throw new Error('ElementView requires an Element model');
-			if (! model.isValid()) throw new Error(model.validationError);
 
 			// set type
 			this.type = model.get('type');
@@ -92,8 +93,7 @@ define(function(require) {
 		createInputView: function() {
 			var InputView = this.getInputView();
 			this.input_view = new InputView({
-				model: this.model,
-				key: this.key
+				model: this.model
 			});
 			this.input_region.show(this.input_view);
 		},
