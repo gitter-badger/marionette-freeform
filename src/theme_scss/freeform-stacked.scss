@@ -1,5 +1,6 @@
 .freeform-stacked {
 	margin-left: 50px;
+	margin-bottom: 40px;
 
 	.element  {
 		margin-bottom: 20px;
@@ -12,12 +13,13 @@
 		select,
 		textarea {
 			display: block;
+			margin: 0;
+			font-family: inherit;
 			font-size: 18px;
+			line-height: 1.8em;
 			border-radius: 3px;
 			border: 1px solid rgba(0,0,0,0.1);
-			margin: 0;
-			padding: 5px 8px;
-			padding-bottom: 6px;
+			padding: 4px 8px;
 			width: 100%;
 			box-sizing: border-box;
 			
@@ -27,9 +29,14 @@
 			}
 		}
 
+		input[type=text],
+		select {
+			height: 1.8em;
+		}
+
 		label {
-			font-size: 18px;
 			display: block;
+			font-size: 18px;
 			user-select: none;
 		}
 		label.label {

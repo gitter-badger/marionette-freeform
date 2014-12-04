@@ -1,5 +1,6 @@
 .freeform-stacked {
-  margin-left: 50px; }
+  margin-left: 50px;
+  margin-bottom: 40px; }
   .freeform-stacked .element {
     margin-bottom: 20px; }
     .freeform-stacked .element .input-region {
@@ -8,12 +9,13 @@
     .freeform-stacked .element select,
     .freeform-stacked .element textarea {
       display: block;
+      margin: 0;
+      font-family: inherit;
       font-size: 18px;
+      line-height: 1.8em;
       border-radius: 3px;
       border: 1px solid rgba(0, 0, 0, 0.1);
-      margin: 0;
-      padding: 5px 8px;
-      padding-bottom: 6px;
+      padding: 4px 8px;
       width: 100%;
       box-sizing: border-box; }
       .freeform-stacked .element input[type=text]:hover, .freeform-stacked .element input[type=text]:focus,
@@ -22,9 +24,12 @@
       .freeform-stacked .element textarea:hover,
       .freeform-stacked .element textarea:focus {
         border: 1px solid rgba(0, 0, 0, 0.3); }
+    .freeform-stacked .element input[type=text],
+    .freeform-stacked .element select {
+      height: 1.8em; }
     .freeform-stacked .element label {
-      font-size: 18px;
       display: block;
+      font-size: 18px;
       user-select: none; }
     .freeform-stacked .element label.label {
       margin-bottom: 5px; }

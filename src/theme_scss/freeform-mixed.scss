@@ -2,8 +2,7 @@
 	margin-left: 50px;
 
 	.element  {
-		display: table-cell;
-		vertical-align: middle;
+		display: block;
 		margin-bottom: 1em;
 		white-space: nowrap;
 
@@ -14,12 +13,14 @@
 		input[type=text],
 		select,
 		textarea {
+			display: block;
+			margin: 0;
+			font-family: inherit;
 			font-size: 18px;
+			line-height: 1.8em;
 			border-radius: 3px;
 			border: 1px solid rgba(0,0,0,0.1);
-			margin: 0;
-			padding: 5px 8px;
-			padding-bottom: 6px;
+			padding: 4px 8px;
 			width: 100%;
 			box-sizing: border-box;
 			
@@ -29,9 +30,14 @@
 			}
 		}
 
+		input[type=text],
+		select {
+			height: 1.8em;
+		}
+
 		label {
-			font-size: 18px;
 			display: inline-block;
+			font-size: 18px;
 			user-select: none;
 		}
 		label.label {
@@ -63,9 +69,9 @@
 	}
 
 	.element.type-textarea {
-		label {
+		label.error {
 			vertical-align: top;
-			margin-top: 4px;
+			margin-top: 5px;
 		}
 	}
 
